@@ -1,0 +1,61 @@
+"""Compatibility layer for the refactored AQSM embedding package.
+
+The implementation now lives in `aqsm_embedding_core`, with one module per
+class. This file re-exports the public API so existing imports keep working.
+"""
+
+from aqsm_embedding_core import (
+    AQSMBuildResult,
+    AQSMWatermarkBuilder,
+    BitMatrix,
+    BitPlaneDecomposer,
+    CarrierXorCalculator,
+    EmbeddingContext,
+    EmbeddingPipeline,
+    EmbeddingReportWriter,
+    EmbeddingResult,
+    ExampleImageRepository,
+    HDWMEmbedder,
+    HistogramAnalyzer,
+    HistogramParameters,
+    ImageDisplay,
+    ImageFileLoader,
+    ImageMatrix,
+    ImageMatrixValidator,
+    NEQREncodedImage,
+    NEQREncoder,
+    NEQRPixelTerm,
+    QuantumBlockAggregator,
+    ScaleParameterCalculator,
+    ScaleParameters,
+    USCSIPIImageSpec,
+    USCSIPISampleDataset,
+)
+
+__all__ = [
+    "AQSMBuildResult",
+    "AQSMWatermarkBuilder",
+    "BitMatrix",
+    "BitPlaneDecomposer",
+    "CarrierXorCalculator",
+    "EmbeddingContext",
+    "EmbeddingPipeline",
+    "EmbeddingReportWriter",
+    "EmbeddingResult",
+    "ExampleImageRepository",
+    "HDWMEmbedder",
+    "HistogramAnalyzer",
+    "HistogramParameters",
+    "ImageDisplay",
+    "ImageFileLoader",
+    "ImageMatrix",
+    "ImageMatrixValidator",
+    "NEQREncodedImage",
+    "NEQREncoder",
+    "NEQRPixelTerm",
+    "QuantumBlockAggregator",
+    "ScaleParameterCalculator",
+    "ScaleParameters",
+    "USCSIPIImageSpec",
+    "USCSIPISampleDataset",
+]
