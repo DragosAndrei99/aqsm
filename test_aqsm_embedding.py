@@ -12,6 +12,7 @@ from aqsm_embedding import (
     CarrierXorCalculator,
     EmbeddingPipeline,
     ExampleImageRepository,
+    HDWMExtractor,
     HDWMEmbedder,
     HistogramAnalyzer,
     ImageDisplay,
@@ -139,6 +140,29 @@ class AQSMEmbeddingTests(unittest.TestCase):
         self.assertEqual(embedder.compute_embedded_bit(1, 1, 1, 1), 1)
         self.assertEqual(embedder.compute_embedded_bit(1, 0, 1, 0), 1)
         self.assertEqual(embedder.compute_embedded_bit(1, 0, 0, None), 1)
+
+    def test_full_extraction_recovers_worked_example_watermark(self) -> None:
+        pipeline = EmbeddingPipeline()
+        context = pipeline.run(self.watermark_image, self.carrier_image, "natural")
+        extractor = HDWMExtractor()
+
+        extraction = extractor.extract(
+            watermarked_image=context.embedding_result.final_image,
+            histogram_parameters=context.histogram_parameters,
+            scale_parameters=context.scale_parameters,
+        )
+
+        self.assertEqual(extraction.extracted_aqsm_watermarks, self.expected_aqsm)
+        self.assertEqual(extraction.refined_bit_planes, self.expected_bit_planes)
+        self.assertEqual(extraction.recovered_watermark, self.watermark_image)
+
+    def test_hdwm_extract_bit_rule_matches_inverse_branches(self) -> None:
+        extractor = HDWMExtractor()
+
+        self.assertEqual(extractor.compute_extracted_bit(1, 0, 1, 1), 0)
+        self.assertEqual(extractor.compute_extracted_bit(1, 1, 1, 1), 1)
+        self.assertEqual(extractor.compute_extracted_bit(1, 0, 1, 0), 1)
+        self.assertEqual(extractor.compute_extracted_bit(1, 0, 0, None), 1)
 
 
 if __name__ == "__main__":

@@ -37,7 +37,7 @@ class USCSIPISampleDataset:
         A local cache directory.
 
     Outputs:
-        Downloaded TIFF paths for one 256x256 watermark and several 512x512 carriers.
+        Downloaded TIFF paths for 256x256 watermarks and 512x512 carriers.
     """
 
     DATASET_PAGE_URL = "https://sipi.usc.edu/database/?volume=misc"
@@ -50,10 +50,52 @@ class USCSIPISampleDataset:
             side=256,
             image_type="Gray",
         ),
+        "watermark_aerial_256": USCSIPIImageSpec(
+            key="watermark_aerial_256",
+            image_id="5.1.10",
+            description="Aerial, 256x256 grayscale",
+            side=256,
+            image_type="Gray",
+        ),
+        "watermark_airplane_256": USCSIPIImageSpec(
+            key="watermark_airplane_256",
+            image_id="5.1.11",
+            description="Airplane, 256x256 grayscale",
+            side=256,
+            image_type="Gray",
+        ),
+        "watermark_clock_256": USCSIPIImageSpec(
+            key="watermark_clock_256",
+            image_id="5.1.12",
+            description="Clock, 256x256 grayscale",
+            side=256,
+            image_type="Gray",
+        ),
+        "watermark_resolution_chart_256": USCSIPIImageSpec(
+            key="watermark_resolution_chart_256",
+            image_id="5.1.13",
+            description="Resolution chart, 256x256 grayscale",
+            side=256,
+            image_type="Gray",
+        ),
+        "watermark_chemical_plant_256": USCSIPIImageSpec(
+            key="watermark_chemical_plant_256",
+            image_id="5.1.14",
+            description="Chemical plant, 256x256 grayscale",
+            side=256,
+            image_type="Gray",
+        ),
         "carrier_couple_512": USCSIPIImageSpec(
             key="carrier_couple_512",
             image_id="5.2.08",
             description="Couple, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_aerial_512": USCSIPIImageSpec(
+            key="carrier_aerial_512",
+            image_id="5.2.09",
+            description="Aerial, 512x512 grayscale",
             side=512,
             image_type="Gray",
         ),
@@ -64,6 +106,76 @@ class USCSIPISampleDataset:
             side=512,
             image_type="Gray",
         ),
+        "carrier_truck_512": USCSIPIImageSpec(
+            key="carrier_truck_512",
+            image_id="7.1.01",
+            description="Truck, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_airplane_512": USCSIPIImageSpec(
+            key="carrier_airplane_512",
+            image_id="7.1.02",
+            description="Airplane, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_tank_1_512": USCSIPIImageSpec(
+            key="carrier_tank_1_512",
+            image_id="7.1.03",
+            description="Tank, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_car_apcs_1_512": USCSIPIImageSpec(
+            key="carrier_car_apcs_1_512",
+            image_id="7.1.04",
+            description="Car and APCs, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_truck_apcs_1_512": USCSIPIImageSpec(
+            key="carrier_truck_apcs_1_512",
+            image_id="7.1.05",
+            description="Truck and APCs, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_truck_apcs_2_512": USCSIPIImageSpec(
+            key="carrier_truck_apcs_2_512",
+            image_id="7.1.06",
+            description="Truck and APCs, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_tank_2_512": USCSIPIImageSpec(
+            key="carrier_tank_2_512",
+            image_id="7.1.07",
+            description="Tank, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_apc_512": USCSIPIImageSpec(
+            key="carrier_apc_512",
+            image_id="7.1.08",
+            description="APC, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_tank_3_512": USCSIPIImageSpec(
+            key="carrier_tank_3_512",
+            image_id="7.1.09",
+            description="Tank, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_car_apcs_2_512": USCSIPIImageSpec(
+            key="carrier_car_apcs_2_512",
+            image_id="7.1.10",
+            description="Car and APCs, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
         "carrier_boat_512": USCSIPIImageSpec(
             key="carrier_boat_512",
             image_id="boat.512",
@@ -71,7 +183,49 @@ class USCSIPISampleDataset:
             side=512,
             image_type="Gray",
         ),
+        "carrier_gray_wedge_512": USCSIPIImageSpec(
+            key="carrier_gray_wedge_512",
+            image_id="gray21.512",
+            description="21 level step wedge, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
+        "carrier_ruler_512": USCSIPIImageSpec(
+            key="carrier_ruler_512",
+            image_id="ruler.512",
+            description="Pixel ruler, 512x512 grayscale",
+            side=512,
+            image_type="Gray",
+        ),
     }
+
+    WATERMARK_OPTION_KEYS = (
+        "watermark_moon_256",
+        "watermark_aerial_256",
+        "watermark_airplane_256",
+        "watermark_clock_256",
+        "watermark_resolution_chart_256",
+        "watermark_chemical_plant_256",
+    )
+
+    CARRIER_OPTION_KEYS = (
+        "carrier_couple_512",
+        "carrier_aerial_512",
+        "carrier_bridge_512",
+        "carrier_truck_512",
+        "carrier_airplane_512",
+        "carrier_tank_1_512",
+        "carrier_car_apcs_1_512",
+        "carrier_truck_apcs_1_512",
+        "carrier_truck_apcs_2_512",
+        "carrier_tank_2_512",
+        "carrier_apc_512",
+        "carrier_tank_3_512",
+        "carrier_car_apcs_2_512",
+        "carrier_boat_512",
+        "carrier_gray_wedge_512",
+        "carrier_ruler_512",
+    )
 
     def __init__(self, cache_directory: str | Path = "example_outputs/usc_sipi_samples") -> None:
         self.cache_directory = Path(cache_directory)
@@ -124,3 +278,13 @@ class USCSIPISampleDataset:
 
         samples = self.download_default_samples(force=force)
         return samples["watermark_moon_256"], samples["carrier_couple_512"]
+
+    def watermark_options(self) -> dict[str, USCSIPIImageSpec]:
+        """Return supported 256x256 grayscale watermark options."""
+
+        return {key: self.SAMPLE_IMAGES[key] for key in self.WATERMARK_OPTION_KEYS}
+
+    def carrier_options(self) -> dict[str, USCSIPIImageSpec]:
+        """Return supported 512x512 grayscale carrier options."""
+
+        return {key: self.SAMPLE_IMAGES[key] for key in self.CARRIER_OPTION_KEYS}

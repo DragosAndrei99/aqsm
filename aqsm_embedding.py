@@ -15,7 +15,9 @@ from aqsm_embedding_core import (
     EmbeddingReportWriter,
     EmbeddingResult,
     ExampleImageRepository,
+    ExtractionResult,
     HDWMEmbedder,
+    HDWMExtractor,
     HistogramAnalyzer,
     HistogramParameters,
     ImageDisplay,
@@ -26,10 +28,12 @@ from aqsm_embedding_core import (
     NEQREncoder,
     NEQRPixelTerm,
     QuantumBlockAggregator,
+    QuantumRefiner,
     ScaleParameterCalculator,
     ScaleParameters,
     USCSIPIImageSpec,
     USCSIPISampleDataset,
+    WatermarkReconstructor,
 )
 
 __all__ = [
@@ -43,7 +47,9 @@ __all__ = [
     "EmbeddingReportWriter",
     "EmbeddingResult",
     "ExampleImageRepository",
+    "ExtractionResult",
     "HDWMEmbedder",
+    "HDWMExtractor",
     "HistogramAnalyzer",
     "HistogramParameters",
     "ImageDisplay",
@@ -54,8 +60,10 @@ __all__ = [
     "NEQREncoder",
     "NEQRPixelTerm",
     "QuantumBlockAggregator",
+    "QuantumRefiner",
     "ScaleParameterCalculator",
     "ScaleParameters",
     "USCSIPIImageSpec",
     "USCSIPISampleDataset",
+    "WatermarkReconstructor",
 ]

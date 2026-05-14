@@ -17,4 +17,4 @@ The runnable project entrypoints remain at the repository root:
 
 - `README.md`
 - `main.py`
-- `aqsm_real_image_walkthrough.ipynb`
+- `aqsm_watermark_embedding_walkthrough.ipynb`

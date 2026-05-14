@@ -1,5 +1,7 @@
 """QBA block aggregation logic."""
 
+from __future__ import annotations
+
 from typing import Sequence
 
 from .image_matrix_validator import ImageMatrixValidator
@@ -48,3 +50,28 @@ class QuantumBlockAggregator:
         for row_index in range(block_side):
             output.append(list(bottom_left[row_index]) + list(bottom_right[row_index]))
         return output
+
+    def split_four(
+        self,
+        block: Sequence[Sequence[int]],
+    ) -> tuple[BitMatrix, BitMatrix, BitMatrix, BitMatrix]:
+        """Split one binary block into four quadrants using inverse QBA.
+
+        Args:
+            block: Binary matrix with even side length.
+
+        Returns:
+            A tuple `(top_left, top_right, bottom_left, bottom_right)`.
+        """
+
+        ImageMatrixValidator.validate_binary(block)
+        side = len(block)
+        if side < 2 or side % 2:
+            raise ValueError("Block side length must be an even positive integer.")
+
+        half = side // 2
+        top_left = [list(row[:half]) for row in block[:half]]
+        top_right = [list(row[half:]) for row in block[:half]]
+        bottom_left = [list(row[:half]) for row in block[half:]]
+        bottom_right = [list(row[half:]) for row in block[half:]]
+        return top_left, top_right, bottom_left, bottom_right
