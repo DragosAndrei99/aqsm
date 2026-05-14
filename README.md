@@ -177,7 +177,7 @@ The default report downloads:
 
 The watermark testbench exposes a wider `r = 1` pool from the same volume: 6 natural `256x256` grayscale watermark images and 16 natural `512x512` grayscale carrier images, giving 96 natural watermark/carrier pairs. The configured natural watermarks cover the `tau1=0` and `tau1=1,tau2=1` HDWM branches; the notebook can add inverted dataset-derived watermark variants to exercise `tau1=1,tau2=0`.
 
-The carrier-quality testbench reuses the same USC-SIPI carrier pool and resizes the configured watermark sources to the paper's visual-quality scales: `256x256` for `r = 1`, `128x128` for `r = 2`, and `64x64` for `r = 3`.
+The carrier-quality testbench builds an 83-image USC-SIPI carrier pool from all currently listed non-rotated `512x512` images in the Miscellaneous, Aerials, Textures, and Sequences volumes, matching the carrier count reported by the paper. The paper does not publish its exact 83 image IDs, so the notebook states this limitation. It resizes the configured watermark sources to the paper's visual-quality scales: `256x256` for `r = 1`, `128x128` for `r = 2`, and `64x64` for `r = 3`.
 
 USC-SIPI images are intended for research use. Check the database copyright notes before using them in publications.
 
